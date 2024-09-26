@@ -5,6 +5,9 @@ const baseURL = 'https://in.bookmyshow.com/explore/home';
 
 const runWebScrapingService = async (inputURL, bookingURL = '', theatreName = '') => {
     const browser = await puppeteer.launch({
+        args: [
+            '--no-sandbox'
+        ],
         headless: true
     });
     const page = await browser.newPage();
