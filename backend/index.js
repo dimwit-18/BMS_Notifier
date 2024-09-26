@@ -36,5 +36,5 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`serving at http://localhost:${port}`);
-    setInterval(checkAllEvents, 5 * 60 * 1000);
+    setInterval(checkAllEvents, 1 * 60 * 1000);
 })
