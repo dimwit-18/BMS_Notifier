@@ -20,9 +20,9 @@ const runWebScrapingService = async (inputURL, bookingURL = '', theatreName = ''
     });
 
     if (bookingURL) {
-        await page.goto(bookingURL, { waitUntil: "networkidle2" });
+        await page.goto(bookingURL, { waitUntil: "networkidle2", timeout: 5*60*1000  });
     } else {
-        await page.goto(inputURL, { waitUntil: "networkidle2" });
+        await page.goto(inputURL, { waitUntil: "networkidle2", timeout: 5*60*1000 });
     }
 
     const cookies = await page.cookies();
