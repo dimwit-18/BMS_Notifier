@@ -24,7 +24,7 @@ function SubscriptionForm() {
 
     try {
       console.log("HELLOOOOO")
-      const response = await axios.post('/api/subscribe', {
+      const response = await axios.post('https://bms-notifier.onrender.com/api/subscribe', {
                                         movieURL: userDetails.theatreName ? '' : userDetails.movieURL,
                                         theatreName: userDetails.theatreName,
                                         bookingURL: userDetails.theatreName ? userDetails.movieURL : '',
