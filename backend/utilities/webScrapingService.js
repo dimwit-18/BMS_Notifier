@@ -28,18 +28,18 @@ const runWebScrapingService = async (inputURL, bookingURL = '', theatreName = ''
     const cookies = await page.cookies();
     await page.setCookie(...cookies); // set cookies
 
-    // // Set geolocation (latitude, longitude)
-    // const latitude = 17.4065; 
-    // const longitude = 78.4772;
-    // await page.setGeolocation({ latitude, longitude });
+    // Set geolocation (latitude, longitude)
+    const latitude = 17.4065; 
+    const longitude = 78.4772;
+    await page.setGeolocation({ latitude, longitude });
 
-    // // Grant location permission
-    // await page.evaluateOnNewDocument(() => {
-    //     const originalGetCurrentPosition = navigator.geolocation.getCurrentPosition;
-    //     navigator.geolocation.getCurrentPosition = (success) => {
-    //         success({ coords: { latitude: 17.4065, longitude: 78.4772 } });
-    //     };
-    // });
+    // Grant location permission
+    await page.evaluateOnNewDocument(() => {
+        const originalGetCurrentPosition = navigator.geolocation.getCurrentPosition;
+        navigator.geolocation.getCurrentPosition = (success) => {
+            success({ coords: { latitude: 17.4065, longitude: 78.4772 } });
+        };
+    });
 
 
     const searchString = theatreName.toLowerCase();
